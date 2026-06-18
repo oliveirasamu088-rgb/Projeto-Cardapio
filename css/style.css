@@ -1,0 +1,412 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+:root {
+  --bg:#fff8f0;
+  --card:#ffffff;
+  --text:#2a1608;
+  --text2:#6d4b35;
+  --primary:#ff8c00;
+  --secondary:#ff3d00;
+  --green:#2ecc71;
+  --border:#d38b1f;
+  --shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+body.dark {
+  --bg:#120d08;
+  --card:#1d1712;
+  --text:#fff4e8;
+  --text2:#ccb8a5;
+  --border:#3a2d23;
+  --shadow:0 10px 25px rgba(0,0,0,.35);
+}
+
+body {
+  background: radial-gradient(circle at top left,#ffb34720,transparent 25%),
+              radial-gradient(circle at bottom right,#ff5e0020,transparent 25%),
+              var(--bg);
+  color:var(--text);
+  font-family:'Poppins',sans-serif;
+  min-height:100vh;
+  transition: background 0.3s ease;
+}
+
+/* HEADER */
+.header {
+  min-height:420px;
+  background: linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.8)),
+              url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200');
+  background-size:cover;
+  background-position:center;
+  border-radius:0 0 40px 40px;
+  padding:30px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h1 {
+  color:white;
+  font-size:4.2rem;
+  font-weight:800;
+  margin-top:10px;
+}
+
+.hero p {
+  color:#ffe6d1;
+  margin-top:15px;
+  font-size:1.15rem;
+}
+
+.hero-buttons {
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+}
+
+.hero-btn {
+  padding:14px 28px;
+  border-radius:50px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.3s;
+  border: none;
+  background:linear-gradient(135deg,#ff9800,#ff3d00);
+  color:white;
+  text-decoration:none;
+  box-shadow:0 10px 20px rgba(255,87,34,.35);
+}
+
+.hero-btn:hover { transform:translateY(-4px); }
+
+/* MODIFICADO: Botão do Modo Noturno fixo no canto superior direito */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2500;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* SEARCH & FILTERS */
+.search-box {
+  max-width:1200px;
+  margin:auto;
+  padding:25px 20px 10px;
+}
+
+.search-input {
+  width:100%;
+  padding:18px 24px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  background:var(--card);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  font-size:1.05rem;
+}
+
+.filters {
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:15px 20px;
+}
+
+.filter-btn {
+  border:none;
+  padding:12px 24px;
+  border-radius:40px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:600;
+  cursor:pointer;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.filter-btn.active {
+  background:linear-gradient(135deg,#ff9800,#ff3d00);
+  color:white;
+  transform:scale(1.05);
+}
+
+/* MENU */
+.menu-container {
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+  gap:28px;
+  padding:20px;
+}
+
+.menu-card {
+  background:var(--card);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  transition:.4s;
+  position:relative;
+}
+
+.menu-card:hover {
+  transform:translateY(-12px);
+  box-shadow:0 20px 35px rgba(0,0,0,.12);
+}
+
+.card-img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  transition:0.4s;
+  cursor: pointer;
+}
+
+.menu-card:hover .card-img {
+  transform:scale(1.08);
+}
+
+.card-content {
+  padding:20px;
+}
+
+.product-name {
+  font-size:1.45rem;
+  font-weight:700;
+}
+
+.rating {
+  color:#ffb300;
+  margin:6px 0;
+}
+
+ 
+
+.favorite.active { color:#ff3d00; transform:scale(1.2); }
+
+.badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff3d00;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  z-index: 10;
+}
+
+.card-bottom {
+  margin-top:18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.price {
+  font-size:1.65rem;
+  font-weight:800;
+  color:var(--green);
+}
+
+.buy-btn {
+  background:linear-gradient(135deg,#c2f106,#107103);
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition: 0.2s;
+}
+.buy-btn:hover { opacity: 0.9; transform: scale(1.03); }
+
+/* MODAL */
+.modal {
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,.75);
+  z-index:4000;
+  align-items:center;
+  justify-content:center;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background:var(--card);
+  max-width:550px;
+  width:90%;
+  border-radius:28px;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+  position: relative;
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* CART */
+.cart-btn {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:70px;
+  height:70px;
+  background:#25d366;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:2.2rem;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  z-index:999;
+  cursor:pointer;
+  transition: 0.3s;
+}
+.cart-btn:hover { transform: scale(1.08); }
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff3d00;
+  color: white;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-sidebar {
+  position:fixed;
+  top:0; right:-450px;
+  width:420px;
+  max-width:100%;
+  height:100vh;
+  background:var(--card);
+  transition:.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:-15px 0 40px rgba(0,0,0,.2);
+  z-index:5000;
+  padding:25px;
+  display:flex;
+  flex-direction:column;
+}
+
+.cart-sidebar.active { right:0; }
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.close-cart {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+
+
+.info-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nutricional-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.9rem;
+}
+
+.nutricional-label {
+  font-weight: 600;
+  color: var(--text2);
+}
+
+.nutricional-value {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.alergenos {
+  background: rgba(255, 61, 0, 0.1);
+  padding: 12px;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.alergeno-livre {
+  color: var(--green);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alergeno-livre::before {
+  content: "✓";
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align:center;
+  padding:60px 20px 40px;
+  color:var(--text2);
+}

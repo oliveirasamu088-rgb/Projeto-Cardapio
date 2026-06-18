@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Lima Burger</title>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍔</text></svg>">
+<style>
+</style>
+</head>
+
+<body>
+<button class="theme-toggle" id="themeToggle">𖧋</button>
+
+<header class="header">
+  <div class="hero">
+    <div style="font-size:4.5rem;"><i class="fas fa-hamburger"></i> </div>
+    <h1>Lima Burger</h1>
+    <p>Sabor inteligente. Experiência premium.</p>
+    
+    <div class="hero-buttons">
+      <a href="#menu" class="hero-btn">🍔 Ver Cardápio</a>
+    </div>
+  </div>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar hambúrguer, bebida...">
+</div>
+
+<div class="filters" id="filters"></div>
+
+<section class="menu-container" id="menu"></section>
+
+<!-- MODAL DE DETALHES -->
+<div class="modal" id="productModal" onclick="handleOutsideClick(event)">
+  <div class="modal-content" id="modalContent"></div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 Seu Pedido (<span id="cartCountHeader">0</span>)</h2>
+    <button class="close-cart" onclick="toggleCart(false)">✕</button>
+  </div>
+  
+  <div id="cartItems" style="flex:1; overflow:auto; margin:20px 0;"></div>
+  
+  <div style="font-size:1.5rem; font-weight:800; margin:15px 0;" id="cartTotal">Total: R$ 0,00</div>
+  
+  <button onclick="finishOrder()" style="width:100%; padding:16px; background:#25d366; color:white; border:none; border-radius:18px; font-size:1.1rem; font-weight:700; cursor:pointer; transition: 0.2s;">
+    Finalizar no WhatsApp
+  </button>
+</div>
+
+<!-- BOTÃO FLUTUANTE DO CARRINHO -->
+<div class="cart-btn" onclick="toggleCart(true)">
+  🛒
+  <div class="cart-badge" id="cartBadgeFloating">0</div>
+</div>
+
+<footer>
+  <footer>
+  <h3>🍔 Lima Burger 🍤</h3>
+  <p>Delivery • Retirada • Experiência VIP</p>
+  <p>🕘 SEGUNDA A SÁBADO: 10h às 22h (horário comercial)</p>
+  <p>📞 (61) 4002-8922</p>
+
+  <div style="margin-top:20px;">
+    <h4>Siga nossas redes sociais</h4>
+
+    <div style="display:flex; justify-content:center; gap:25px; margin-top:15px; flex-wrap:wrap;">
+
+      <a href="https://instagram.com/limaburger" target="_blank"
+         style="text-decoration:none; color:#E4405F; font-size:1.8rem; transition:.3s;">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="https://facebook.com/limaburger" target="_blank"
+         style="text-decoration:none; color:#1877F2; font-size:1.8rem; transition:.3s;">
+        <i class="fab fa-facebook"></i>
+      </a>
+
+      <a href="https://tiktok.com/@limaburger" target="_blank"
+         style="text-decoration:none; color:var(--text); font-size:1.8rem; transition:.3s;">
+        <i class="fab fa-tiktok"></i>
+      </a>
+
+      <p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.62511552542!2d-48.044638000000006!3d-15.771932999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a358b8ea39075%3A0x2f23ba2c66a464a!2sFAST%20FOODS%20LIMA!5e1!3m2!1spt-BR!2sbr!4v1780417164218!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></iframe>
+      </p>
+
+    </div>
+  </div>
+<footer>
+
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
